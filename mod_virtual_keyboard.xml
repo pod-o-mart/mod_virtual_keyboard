@@ -21,9 +21,9 @@
 		<filename>styles/modernizr-2.8.3.js</filename>
 		<filename>styles/index.html</filename>
 	</files>
-	<languages>
-		<language tag="en-GB">en-GB.mod_virtual_keyboard.ini</language>
-		<language tag="en-GB">en-GB.mod_virtual_keyboard.sys.ini</language>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_virtual_keyboard.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_virtual_keyboard.sys.ini</language>
 	</languages>
 
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
