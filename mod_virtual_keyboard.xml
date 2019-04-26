@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>Virtual keyboard</name>
+	<author>Martin Podolak</author>
+	<creationDate>July 2010</creationDate>
+	<copyright>Martin Podolak</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>www.podolak.net/en/contact</authorEmail>
+	<authorUrl>www.podolak.net</authorUrl>
+	<version>1.0</version>
+	<description>This module adds a virtual keyboard to the input of your choice</description>
+	<files>
+		<filename module="mod_virtual_keyboard">mod_virtual_keyboard.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+		<filename>keyboard/keyboard.css</filename>
+		<filename>keyboard/keyboard.png</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_virtual_keyboard.ini</language>
+	</languages>	
+	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+<param type="spacer" default="&lt;b&gt;Keyboard general parameters&lt;/b&gt;" />
+<param name="keyboard_class" type="text" default="inputbox" label="Input class" description="Determine the class of the input(s) you want to assign the keyboard to. This is most likely 'inputbox'. Note that the module must be active on the page where the keyboard should be active." />
+		<param name="allow_resize" type="radio" default="1" label="Allow user to adjust keyboard size" description="The keyboard includes a control that allows the user to adjust the size of the keyboard.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="default_size" type="list" default="2" label="Default keyboard size" description="Five sizes based on font-size have been pre-programmed: 9px, 11px (default), 13px, 16px and 20px; corresponding to the sizes 1 to 5 respectively.">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</param>
+		<param name="automatic_lang" type="radio" default="1" label="Automatic language detection" description="The keyboard will use the lang attribute of each enabled form element in order to determine which keyboard to display. For example, if a text input contains the attribute lang=fr  then the French keyboard layout will be automatically selected by default when the keyboard is invoked. If no lang attribute exists, or a compatible keyboard layout is not found, then the default or currently selected layout will be displayed.">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</param>
+		<param name="dead_keys_on" type="radio" default="0" label="Dead keys by default">
+			<option value="0">Off</option>
+			<option value="1">On</option>
+		</param>
+		<param name="icon_path" type="text" default="/modules/mod_virtual_keyboard/keyboard/keyboard.png" label="Icon path" description="Where the keyboard icon is saved."/>
+
+	<param type="spacer" default="&lt;b&gt;Keyboard tooltip parameters&lt;/b&gt;" />
+		<param name="tooltip_disp_vki" type="text" default="Display virtual keyboard interface" label="Tooltip Display Virtual Keyboard Interface" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_select_layout" type="text" default="Select keyboard layout" label="Tooltip Select keyboard layout" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_dead_keys" type="text" default="Dead keys" label="Tooltip Dead keys" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_on" type="text" default="On" label="Tooltip On" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_off" type="text" default="Off" label="Tooltip Off" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_close" type="text" default="Close the keyboard" label="Tooltip Close the keyboard" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_clear" type="text" default="Clear" label="Tooltip Clear" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_input_clear" type="text" default="Clear this input" label="Tooltip Clear this input" description="Define here what will be shown on mouse hover." />
+		<param name="tooltip_adjust_size" type="text" default="Adjust keyboard size" label="Tooltip Adjust keyboard size" description="Define here what will be shown on mouse hover." />
+	<param type="spacer" default="&lt;b&gt;Keyboard keyname parameters&lt;/b&gt;" />
+			<param name="keyname_enter" type="text" default="Enter" label="Keyname Enter" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_shift" type="text" default="Shift" label="Keyname Shift" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_bksp" type="text" default="Bksp" label="Keyname Bksp" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_caps" type="text" default="Caps" label="Keyname Caps" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_tab" type="text" default="Tab" label="Keyname Tab" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_altlk" type="text" default="AltLk" label="Keyname AltLk" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_altgr" type="text" default="AltGr" label="Keyname AltGr" description="Define here how to display the name of the key on the keyboard layouts." />
+			<param name="keyname_alt" type="text" default="Alt" label="Keyname Alt" description="Define here how to display the name of the key on the keyboard layouts." />
+	<param type="spacer" default="&lt;b&gt;Keyboard language parameters&lt;/b&gt;" />
+	<param name="default_lang" type="list" default="uk" label="Default language" description="Determine the keyboard which displays first for each different page. Default language is always active, even when you turn it off below.">
+		<option value="arabic">Arabic</option>
+		<option value="armenian_e">Armenian East</option>
+		<option value="armenian_w">Armenian West</option>
+		<option value="belarussian">Belarussian</option>
+		<option value="belgian">Belgian</option>
+		<option value="bengali">Bengali</option>
+		<option value="bulgarian">Bulgarian</option>
+		<option value="burmese">Burmese</option>
+		<option value="czech">Czech</option>
+		<option value="danish">Danish</option>
+		<option value="dutch">Dutch</option>
+		<option value="dvorak">Dvorak</option>
+		<option value="farsi">Farsi</option>
+		<option value="french">French</option>
+		<option value="german">German</option>
+		<option value="greek">Greek</option>
+		<option value="hebrew">Hebrew</option>
+		<option value="hindi" name="hindi">Hindi</option>
+		<option value="hungarian">Hungarian</option>
+		<option value="italian">Italian</option>
+		<option value="hirakata">Japanese</option>
+		<option value="kazakh">Kazakh</option>
+		<option value="lithuanian">Lithuanian</option>
+		<option value="macedonian">Macedonian</option>
+		<option value="norwegian">Norwegian</option>
+		<option value="numpad">Numpad</option>
+		<option value="pashto">Pashto</option>
+		<option value="pinyin">Pinyin</option>
+		<option value="polish">Polish Prog</option>
+		<option value="portuguese_br">Portuguese BR</option>
+		<option value="portuguese_pt">Portuguese PT</option>
+		<option value="romanian">Romanian</option>
+		<option value="russian">Russian</option>
+		<option value="serbiancyr">Serbian Cyr</option>
+		<option value="serbianlat">Serbian Lat</option>
+		<option value="slovak">Slovak</option>
+		<option value="slovenian">Slovenian</option>
+		<option value="spanish_es">Spanish ES</option>
+		<option value="swedish">Swedish</option>
+		<option value="turkish_f">Turkish F</option>
+		<option value="turkish_q">Turkish Q</option>
+		<option value="uk">UK</option>
+		<option value="ukrainian">Ukrainian</option>
+		<option value="us">US</option>
+		<option value="us_int">US International</option>
+	</param>
+	<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="Show Arabic" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Arabic" type="text" default="Arabic" label="Label Arabic" description="Define how you want to the language name to be displayed." />
+		<param name="Show Armenian West" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Armenian West" type="text" default="Armenian West" label="Label Armenian West" description="Define how you want to the language name to be displayed." />
+		<param name="Show Armenian East" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Armenian East" type="text" default="Armenian East" label="Label Armenian East" description="Define how you want to the language name to be displayed." />
+		<param name="Show Belarussian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Belarussian" type="text" default="Belarussian" label="Label Belarussian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Belgian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Belgian" type="text" default="Belgian" label="Label Belgian" description="Define how you want to the language name to be displayed." />	
+		<param name="Show Bengali" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Bengali" type="text" default="Bengali" label="Label Bengali" description="Define how you want to the language name to be displayed." />	
+		<param name="Show Bulgarian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Bulgarian" type="text" default="Bulgarian" label="Label Bulgarian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Burmese" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Burmese" type="text" default="Burmese" label="Label Burmese" description="Define how you want to the language name to be displayed." />
+		<param name="Show Czech" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Czech" type="text" default="Czech" label="Label Czech" description="Define how you want to the language name to be displayed." />
+		<param name="Show Danish" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Danish" type="text" default="Danish" label="Label Danish" description="Define how you want to the language name to be displayed." />
+		<param name="Show Dutch" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Dutch" type="text" default="Dutch" label="Label Dutch" description="Define how you want to the language name to be displayed." />
+		<param name="Show Dvorak" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Dvorak" type="text" default="Dvorak" label="Label Dvorak" description="Define how you want to the language name to be displayed." />
+		<param name="Show Farsi" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Farsi" type="text" default="Farsi" label="Label Farsi" description="Define how you want to the language name to be displayed." />
+		<param name="Show French" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label French" type="text" default="French" label="Label French" description="Define how you want to the language name to be displayed." />
+		<param name="Show German" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label German" type="text" default="German" label="Label German" description="Define how you want to the language name to be displayed." />
+		<param name="Show Greek" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Greek" type="text" default="Greek" label="Label Greek" description="Define how you want to the language name to be displayed." />
+		<param name="Show Hebrew" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Hebrew" type="text" default="Hebrew" label="Label Hebrew" description="Define how you want to the language name to be displayed." />
+		<param name="Show Hindi" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Hindi" type="text" default="Hindi" label="Label Hindi" description="Define how you want to the language name to be displayed." />
+		<param name="Show Hungarian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Hungarian" type="text" default="Hungarian" label="Label Hungarian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Italian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Italian" type="text" default="Italian" label="Label Italian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Japanese" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Japanese" type="text" default="Japanese" label="Label Japanese" description="Define how you want to the language name to be displayed." />
+		<param name="Show Kazakh" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Kazakh" type="text" default="Kazakh" label="Label Kazakh" description="Define how you want to the language name to be displayed." />
+		<param name="Show Lithuanian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Lithuanian" type="text" default="Lithuanian" label="Label Lithuanian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Macedonian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Macedonian" type="text" default="Macedonian" label="Label Macedonian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Norwegian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Norwegian" type="text" default="Norwegian" label="Label Norwegian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Numpad" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Numpad" type="text" default="Numpad" label="Label Numpad" description="Define how you want to the language name to be displayed." />
+		<param name="Show Pashto" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Pashto" type="text" default="Pashto" label="Label Pashto" description="Define how you want to the language name to be displayed." />
+		<param name="Show Pinyin" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Pinyin" type="text" default="Pinyin" label="Label Pinyin" description="Define how you want to the language name to be displayed." />
+		<param name="Show Polish Prog" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Polish Prog" type="text" default="Polish Prog" label="Label Polish Prog" description="Define how you want to the language name to be displayed." />
+		<param name="Show Portuguese BR" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Portuguese BR" type="text" default="Portuguese BR" label="Label Portuguese BR" description="Define how you want to the language name to be displayed." />
+		<param name="Show Portuguese PT" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Portuguese PT" type="text" default="Portuguese PT" label="Label Portuguese PT" description="Define how you want to the language name to be displayed." />
+		<param name="Show Romanian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Romanian" type="text" default="Romanian" label="Label Romanian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Russian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Russian" type="text" default="Russian" label="Label Russian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Serbian Cyr" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Serbian Cyr" type="text" default="Serbian Cyr" label="Label Serbian Cyr" description="Define how you want to the language name to be displayed." />
+		<param name="Show Serbian Lat" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Serbian Lat" type="text" default="Serbian Lat" label="Label Serbian Lat" description="Define how you want to the language name to be displayed." />
+		<param name="Show Slovak" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Slovak" type="text" default="Slovak" label="Label Slovak" description="Define how you want to the language name to be displayed." />
+		<param name="Show Slovenian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Slovenian" type="text" default="Slovenian" label="Label Slovenian" description="Define how you want to the language name to be displayed." />
+		<param name="Show Spanish ES" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Spanish ES" type="text" default="Spanish ES" label="Label Spanish ES" description="Define how you want to the language name to be displayed." />
+		<param name="Show Swedish" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Swedish" type="text" default="Swedish" label="Label Swedish" description="Define how you want to the language name to be displayed." />
+		<param name="Show Turkish F" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Turkish F" type="text" default="Turkish F" label="Label Turkish F" description="Define how you want to the language name to be displayed." />
+		<param name="Show Turkish Q" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Turkish Q" type="text" default="Turkish Q" label="Label Turkish Q" description="Define how you want to the language name to be displayed." />
+		<param name="Show UK" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label UK" type="text" default="UK" label="Label UK" description="Define how you want to the language name to be displayed." />
+		<param name="Show Ukrainian" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label Ukrainian" type="text" default="Ukrainian" label="Label Ukrainian" description="Define how you want to the language name to be displayed." />
+		<param name="Show US" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label US" type="text" default="US" label="Label US" description="Define how you want to the language name to be displayed." />
+		<param name="Show US International" type="radio" default="1" label="" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="Label US International" type="text" default="US International" label="Label US International" description="Define how you want to the language name to be displayed." />
+
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="1" label="Caching" description="Select whether to cache the content of this module">
+			<option value="1">Use global</option>
+			<option value="0">No caching</option>
+		</param>
+		<param name="cache_time" type="text" default="900" label="Cache Time" description="The time before the module is recached" />
+	</params>
+</install>
