@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>mod_virtual_keyboard</name>
+	<author>Martin Podolak</author>
+	<creationDate>2019-04-22</creationDate>
+	<copyright>Copyright (C) 2019 Martin Podolak</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>kontakt@podolak.net</authorEmail>
+	<authorUrl>www.podolak.net</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_VIRTUAL_KEYBOARD_XML_DESCRIPTION</description>
+	<files>
+		<filename>mod_virtual_keyboard.xml</filename>
+		<filename module="mod_virtual_keyboard">mod_virtual_keyboard.php</filename>
+		<filename>index.html</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>tmpl/index.html</filename>
+		<filename>styles/keyboard.css</filename>
+		<filename>styles/keyboard-touch.css</filename>
+		<filename>styles/keyboard.png</filename>
+		<filename>styles/modernizr-2.8.3.js</filename>
+		<filename>styles/index.html</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_virtual_keyboard.ini</language>
+		<language tag="en-GB">en-GB.mod_virtual_keyboard.sys.ini</language>
+	</languages>
+
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_CUSTOM_HTML" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="FIELDSET_VKI_BASIC">
+				<field name="notebasic" type="note" label="NOTEBASIC" />
+				<field
+					name="apply_keyboard"
+					type="list"
+					label="APPLY_TO_LABEL"
+					description="APPLY_TO_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JALL</option>
+					<option value="2">APPLY_TO_SPECIFIC_FIELD</option>
+				</field>
+				<field
+					name="apply_specific_classname"
+					type="text"
+					label="SPECIFIC_CLASSNAME_LABEL"
+					description="SPECIFIC_CLASSNAME_DESC"
+					size="6"
+					default="inputbox"
+					showon="apply_keyboard:2"
+				/>
+				<field
+					name="deadkeys"
+					type="list"
+					label="DEADKEYS_LABEL"
+					description="DEADKEYS_DESC"
+					default="2"
+					filter="integer"
+					showon="keyboard_am:0"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+					<option value="2">ON_BY_DEFAULT</option>
+				</field>
+				<field
+					name="numpad"
+					type="list"
+					label="NUMPAD_LABEL"
+					description="NUMPAD_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+					<option value="2">ON_BY_DEFAULT</option>
+				</field>
+				<field
+					name="vki_size"
+					type="list"
+					label="VKI_SIZE_LABEL"
+					default="3"
+					filter="integer"
+					>
+					<option value="1">VKI_SMALLER</option>
+					<option value="2">VKI_SMALL</option>
+					<option value="3">VKI_NORMAL</option>
+					<option value="4">VKI_BIG</option>
+					<option value="5">VKI_BIGGER</option>
+				</field>
+				<field
+					name="vki_sizeadj"
+					type="radio"
+					label="VKI_SIZE_ADJUST_LABEL"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="vki_entersubmit"
+					type="radio"
+					label="VKI_SIZE_ENTERSUBMIT_LABEL"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="vki_clickless"
+					type="text"
+					label="VKI_CLICKLESS_LABEL"
+					description="VKI_CLICKLESS_DESC"
+					size="6"
+					default="0"
+					filter="integer"
+				/>
+				<field
+					name="vki_imageless"
+					type="radio"
+					label="VKI_IMAGELESS"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="vki_imageuri"
+					type="text"
+					label="VKI_IMAGEURI"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="/modules/mod_virtual_keyboard/styles/keyboard.png"
+					showon="vki_imageless:0"
+				/>
+				<field
+					name="vki_responsive"
+					type="radio"
+					label="VKI_RESPONSIVE_LABLE"
+					description="VKI_RESPONSIVE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="notetooltips" type="note" label="NOTETOOLTIPS" />
+				<field
+					name="vki_i18n_00"
+					type="text"
+					label="VKI_I18N_00"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Display Number Pad"
+				/>
+				<field
+					name="vki_i18n_01"
+					type="text"
+					label="VKI_I18N_01"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Display virtual keyboard interface"
+				/>
+				<field
+					name="vki_i18n_02"
+					type="text"
+					label="VKI_I18N_02"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Select keyboard layout"
+				/>
+				<field
+					name="vki_i18n_03"
+					type="text"
+					label="VKI_I18N_03"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Dead keys"
+				/>
+				<field
+					name="vki_i18n_04"
+					type="text"
+					label="VKI_I18N_04"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="On"
+				/>
+				<field
+					name="vki_i18n_05"
+					type="text"
+					label="VKI_I18N_05"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Off"
+				/>
+				<field
+					name="vki_i18n_06"
+					type="text"
+					label="VKI_I18N_06"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Close the keyboard"
+				/>
+				<field
+					name="vki_i18n_07"
+					type="text"
+					label="VKI_I18N_07"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Clear"
+				/>
+				<field
+					name="vki_i18n_08"
+					type="text"
+					label="VKI_I18N_08"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Clear this input"
+				/>
+				<field
+					name="vki_i18n_10"
+					type="text"
+					label="VKI_I18N_10"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Decrease keyboard size"
+				/>
+				<field
+					name="vki_i18n_11"
+					type="text"
+					label="VKI_I18N_11"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Increase keyboard size"
+				/>
+				<field name="metanote" type="note" label="METANOTE" />
+				<field
+					name="vki_enter"
+					type="text"
+					label="VKI_ENTER"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Enter"
+				/>
+
+				<field
+					name="vki_shift"
+					type="text"
+					label="VKI_SHIFT"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Shift"
+				/>
+				<field
+					name="vki_alt"
+					type="text"
+					label="VKI_ALT"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Alt"
+				/>
+				<field
+					name="vki_altgr"
+					type="text"
+					label="VKI_ALTGR"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="AltGr"
+				/>
+				<field
+					name="vki_altlk"
+					type="text"
+					label="VKI_ALTLK"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="AltLk"
+				/>
+				<field
+					name="vki_caps"
+					type="text"
+					label="VKI_CAPS"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Caps"
+				/>
+				<field
+					name="vki_bksp"
+					type="text"
+					label="VKI_BKSP"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Bksp"
+				/>
+				<field
+					name="vki_tab"
+					type="text"
+					label="VKI_TAB"
+					description="RESET_DEFAULTS"
+					size="30"
+					default="Tab"
+				/>
+			</fieldset>
+
+			<fieldset name="keyboards" label="FIELDSET_KEYBOARDS" style="width:100%">
+				<field
+					name="keyboard_advanced"
+					type="radio"
+					label="KEYBOARD_ADVANCED_LABEL"
+					description="KEYBOARD_ADVANCED_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="default_keyboard"
+					type="list"
+					label="DEFAULT_KEYBOARD_LABEL"
+					description="DEFAULT_KEYBOARD_DESC"
+					default="en"
+					>
+					<option value="sq">KEYBOARD_SQ_LABEL</option>
+					<option value="am">KEYBOARD_AM_LABEL</option>
+					<option value="ar">KEYBOARD_AR_LABEL</option>
+					<option value="hy">KEYBOARD_HY_LABEL</option>
+					<option value="hy-arevmda">KEYBOARD_HY-AREVMDA_LABEL</option>
+					<option value="as">KEYBOARD_AS_LABEL</option>
+					<option value="az-Cyrl">KEYBOARD_AZ-CYRL_LABEL</option>
+					<option value="az">KEYBOARD_AZ_LABEL</option>
+					<option value="be">KEYBOARD_BE_LABEL</option>
+					<option value="nl-BE">KEYBOARD_NL-BE_LABEL</option>
+					<option value="bg1">KEYBOARD_BG1_LABEL</option>
+					<option value="bg2">KEYBOARD_BG2_LABEL</option>
+					<option value="bn">KEYBOARD_BN_LABEL</option>
+					<option value="my">KEYBOARD_MY_LABEL</option>
+					<option value="fr-CA">KEYBOARD_FR-CA_LABEL</option>
+					<option value="zh-Bopo">KEYBOARD_ZH-BOPO_LABEL</option>
+					<option value="zh">KEYBOARD_ZH_LABEL</option>
+					<option value="cs">KEYBOARD_CS_LABEL</option>
+					<option value="da">KEYBOARD_DA_LABEL</option>
+					<option value="fa-AF">KEYBOARD_FA-AF_LABEL</option>
+					<option value="hi-Deva">KEYBOARD_HI-DEVA_LABEL</option>
+					<option value="dv">KEYBOARD_DV_LABEL</option>
+					<option value="db">KEYBOARD_DB_LABEL</option>
+					<option value="dk">KEYBOARD_DK_LABEL</option>
+					<option value="nl">KEYBOARD_NL_LABEL</option>
+					<option value="en">KEYBOARD_EN_LABEL</option>
+					<option value="en-gb">KEYBOARD_EN-GB_LABEL</option>
+					<option value="en-us">KEYBOARD_EN-US_LABEL</option>
+					<option value="et">KEYBOARD_ET_LABEL</option>
+					<option value="fo">KEYBOARD_FO_LABEL</option>
+					<option value="fa">KEYBOARD_FA_LABEL</option>
+					<option value="fi">KEYBOARD_FI_LABEL</option>
+					<option value="fr">KEYBOARD_FR_LABEL</option>
+					<option value="ka">KEYBOARD_KA_LABEL</option>
+					<option value="de">KEYBOARD_DE_LABEL</option>
+					<option value="el">KEYBOARD_EL_LABEL</option>
+					<option value="gu">KEYBOARD_GU_LABEL</option>
+					<option value="he">KEYBOARD_HE_LABEL</option>
+					<option value="hi">KEYBOARD_HI_LABEL</option>
+					<option value="is">KEYBOARD_IS_LABEL</option>
+					<option value="ga">KEYBOARD_GA_LABEL</option>
+					<option value="it">KEYBOARD_IT_LABEL</option>
+					<option value="ja">KEYBOARD_JA_LABEL</option>
+					<option value="kn">KEYBOARD_KN_LABEL</option>
+					<option value="kk">KEYBOARD_KK_LABEL</option>
+					<option value="km">KEYBOARD_KM_LABEL</option>
+					<option value="ko">KEYBOARD_KO_LABEL</option>
+					<option value="ku">KEYBOARD_KU_LABEL</option>
+					<option value="ky">KEYBOARD_KY_LABEL</option>
+					<option value="lv">KEYBOARD_LV_LABEL</option>
+					<option value="lt">KEYBOARD_LT_LABEL</option>
+					<option value="hu">KEYBOARD_HU_LABEL</option>
+					<option value="mk">KEYBOARD_MK_LABEL</option>
+					<option value="ml">KEYBOARD_ML_LABEL</option>
+					<option value="mt">KEYBOARD_MT_LABEL</option>
+					<option value="mr">KEYBOARD_MR_LABEL</option>
+					<option value="misc">KEYBOARD_MISC_LABEL</option>
+					<option value="mn">KEYBOARD_MN_LABEL</option>
+					<option value="no">KEYBOARD_NO_LABEL</option>
+					<option value="ps">KEYBOARD_PS_LABEL</option>
+					<option value="zh-Latn">KEYBOARD_ZH-LATN_LABEL</option>
+					<option value="pl1">KEYBOARD_PL1_LABEL</option>
+					<option value="pl2">KEYBOARD_PL2_LABEL</option>
+					<option value="pt-BR">KEYBOARD_PT-BR_LABEL</option>
+					<option value="pt">KEYBOARD_PT_LABEL</option>
+					<option value="pa">KEYBOARD_PA_LABEL</option>
+					<option value="ro">KEYBOARD_RO_LABEL</option>
+					<option value="ru">KEYBOARD_RU_LABEL</option>
+					<option value="de-CH">KEYBOARD_DE-CH_LABEL</option>
+					<option value="sh">KEYBOARD_SH_LABEL</option>
+					<option value="sr">KEYBOARD_SR_LABEL</option>
+					<option value="sk">KEYBOARD_SK_LABEL</option>
+					<option value="es">KEYBOARD_ES_LABEL</option>
+					<option value="sv">KEYBOARD_SV_LABEL</option>
+					<option value="fr-CH">KEYBOARD_FR-CH_LABEL</option>
+					<option value="syc">KEYBOARD_SYC_LABEL</option>
+					<option value="ta">KEYBOARD_TA_LABEL</option>
+					<option value="tt">KEYBOARD_TT_LABEL</option>
+					<option value="te">KEYBOARD_TE_LABEL</option>
+					<option value="th1">KEYBOARD_TH1_LABEL</option>
+					<option value="th2">KEYBOARD_TH2_LABEL</option>
+					<option value="trf">KEYBOARD_TRF_LABEL</option>
+					<option value="trq">KEYBOARD_TRQ_LABEL</option>
+					<option value="uk">KEYBOARD_UK_LABEL</option>
+					<option value="ur1">KEYBOARD_UR1_LABEL</option>
+					<option value="ur2">KEYBOARD_UR2_LABEL</option>
+					<option value="uz">KEYBOARD_UZ_LABEL</option>
+					<option value="vi">KEYBOARD_VI_LABEL</option>
+					<option value="yi1">KEYBOARD_YI1_LABEL</option>
+					<option value="yi2">KEYBOARD_YI2_LABEL</option>
+					<option value="custom">KEYBOARD_CUSTOM_LABEL</option>
+				</field>
+				<field
+					name="keyboard_am"
+					type="radio"
+					label="KEYBOARD_AM_LABEL"
+					description="KEYBOARD_AM_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_am_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="አማርኛ"
+					showon="keyboard_am:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_am_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Amharic"
+					showon="keyboard_am:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_ar"
+					type="radio"
+					label="KEYBOARD_AR_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_ar_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="العربية"
+					showon="keyboard_ar:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_ar_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Arabic"
+					showon="keyboard_ar:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_as"
+					type="radio"
+					label="KEYBOARD_AS_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_as_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="অসমীয়া"
+					showon="keyboard_as:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_as_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Assamese"
+					showon="keyboard_as:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_az-Cyrl"
+					type="radio"
+					label="KEYBOARD_AZ-CYRL_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_az-Cyrl_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Азәрбајҹанҹа"
+					showon="keyboard_az-Cyrl:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_az-Cyrl_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Azerbaijani Cyrillic"
+					showon="keyboard_az-Cyrl:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_az"
+					type="radio"
+					label="KEYBOARD_AZ_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_az_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Azərbaycanca"
+					showon="keyboard_az:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_az_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Azerbaijani Latin"
+					showon="keyboard_az:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_be"
+					type="radio"
+					label="KEYBOARD_BE_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_be_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Беларуская"
+					showon="keyboard_be:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_be_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Belarusian"
+					showon="keyboard_be:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_nl-BE"
+					type="radio"
+					label="KEYBOARD_NL-BE_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_nl-BE_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Belgische / Belge"
+					showon="keyboard_nl-BE:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_nl-BE_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Belgian"
+					showon="keyboard_nl-BE:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bg1"
+					type="radio"
+					label="KEYBOARD_BG1_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_bg1_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Български Фонетичен"
+					showon="keyboard_bg1:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bg1_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Bulgarian Phonetic"
+					showon="keyboard_bg1:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bg2"
+					type="radio"
+					label="KEYBOARD_BG2_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_bg2_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Български"
+					showon="keyboard_bg2:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bg2_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Bulgarian BDS"
+					showon="keyboard_bg2:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bn"
+					type="radio"
+					label="KEYBOARD_BN_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_bn_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="বাংলা"
+					showon="keyboard_bn:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_bn_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Bengali"
+					showon="keyboard_bn:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fr-CA"
+					type="radio"
+					label="KEYBOARD_FR-CA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_fr-CA_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Canadienne-française"
+					showon="keyboard_fr-CA:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fr-CA_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Canadian French"
+					showon="keyboard_fr-CA:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_cs"
+					type="radio"
+					label="KEYBOARD_CS_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_cs_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Česky"
+					showon="keyboard_cs:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_cs_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Czech"
+					showon="keyboard_cs:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_da"
+					type="radio"
+					label="KEYBOARD_DA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_da_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Dansk"
+					showon="keyboard_da:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_da_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Danish"
+					showon="keyboard_da:1[AND]keyboard_advanced:1"
+				/>
+				
+				<field
+					name="keyboard_de"
+					type="radio"
+					label="KEYBOARD_DE_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_de_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Deutsch"
+					showon="keyboard_de:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_de_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="German"
+					showon="keyboard_de:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en"
+					type="radio"
+					label="KEYBOARD_EN_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_en_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="English International"
+					showon="keyboard_en:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="English International"
+					showon="keyboard_en:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_db"
+					type="radio"
+					label="KEYBOARD_DB_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_db_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Dingbats"
+					showon="keyboard_db:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_db_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Dingbats"
+					showon="keyboard_db:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dv"
+					type="radio"
+					label="KEYBOARD_DV_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_dv_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="ދިވެހިބަސް"
+					showon="keyboard_dv:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dv_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Divehi"
+					showon="keyboard_dv:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dv"
+					type="radio"
+					label="KEYBOARD_DV_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_dv_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="ދިވެހިބަސް"
+					showon="keyboard_dv:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dv_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Divehi"
+					showon="keyboard_dv:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dk"
+					type="radio"
+					label="KEYBOARD_DK_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_dk_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Dvorak"
+					showon="keyboard_dk:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_dk_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Dvorak"
+					showon="keyboard_dk:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_el"
+					type="radio"
+					label="KEYBOARD_EL_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_el_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Ελληνικά"
+					showon="keyboard_el:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_el_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Greek"
+					showon="keyboard_el:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_et"
+					type="radio"
+					label="KEYBOARD_ET_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_et_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Eesti"
+					showon="keyboard_et:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_et_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Estonian"
+					showon="keyboard_et:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en-gb"
+					type="radio"
+					label="KEYBOARD_EN-GB_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_en-gb_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="English GB"
+					showon="keyboard_en-gb:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en-gb_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="English GB"
+					showon="keyboard_en-gb:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en-us"
+					type="radio"
+					label="KEYBOARD_EN-US_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_en-us_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="English US"
+					showon="keyboard_en-us:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_en-us_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="English US"
+					showon="keyboard_en-us:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_es"
+					type="radio"
+					label="KEYBOARD_ES_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_es_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Español"
+					showon="keyboard_es:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_es_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Spanish"
+					showon="keyboard_es:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fa-AF"
+					type="radio"
+					label="KEYBOARD_FA-AF_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_fa-AF_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="دری"
+					showon="keyboard_fa-AF:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fa-AF_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Dari"
+					showon="keyboard_fa-AF:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fa"
+					type="radio"
+					label="KEYBOARD_FA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_fa_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="فارسی"
+					showon="keyboard_fa:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fa_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Farsi"
+					showon="keyboard_fa:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fo"
+					type="radio"
+					label="KEYBOARD_FO_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_fo_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Føroyskt"
+					showon="keyboard_fo:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fo_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Faeroese"
+					showon="keyboard_fo:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fr"
+					type="radio"
+					label="KEYBOARD_FR_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_fr_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Français"
+					showon="keyboard_fr:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_fr_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="French"
+					showon="keyboard_fr:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_ga"
+					type="radio"
+					label="KEYBOARD_GA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_ga_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Gaeilge"
+					showon="keyboard_ga:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_ga_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Irish / Gaelic"
+					showon="keyboard_ga:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_gu"
+					type="radio"
+					label="KEYBOARD_GU_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_gu_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="ગુજરાતી"
+					showon="keyboard_gu:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_gu_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Gujarati"
+					showon="keyboard_gu:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_he"
+					type="radio"
+					label="KEYBOARD_HE_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_he_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="עברית"
+					showon="keyboard_he:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_he_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Hebrew"
+					showon="keyboard_he:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hi-Deva"
+					type="radio"
+					label="KEYBOARD_HI-DEVA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_hi-Deva_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="देवनागरी"
+					showon="keyboard_hi-Deva:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hi-Deva_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Devanagari"
+					showon="keyboard_hi-Deva:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hi"
+					type="radio"
+					label="KEYBOARD_HI_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_hi_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="हिंदी"
+					showon="keyboard_hi:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hi_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Hindi"
+					showon="keyboard_hi:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hy-arevmda"
+					type="radio"
+					label="KEYBOARD_HY-AREVMDA_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_hy-arevmda_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Հայերեն արեւմուտք"
+					showon="keyboard_hy-arevmda:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hy-arevmda_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Western Armenian"
+					showon="keyboard_hy-arevmda:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hy"
+					type="radio"
+					label="KEYBOARD_HY_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_hy_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Հայերեն արեւելք"
+					showon="keyboard_hy:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_hy_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Eastern Armenian"
+					showon="keyboard_hy:1[AND]keyboard_advanced:1"
+				/>
+				
+
+				<field
+					name="keyboard_custom"
+					type="radio"
+					label="KEYBOARD_CUSTOM_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_custom_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="KEYBOARD_CUSTOM_DESC"
+					size="6"
+					default="Custom"
+					showon="keyboard_custom:1"
+				/>
+				<field
+					name="keyboard_custom_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Custom"
+					showon="keyboard_custom:1"
+				/>
+				<field
+					name="keyboard_custom_codepage"
+					type="editor"
+					label="CUSTOM_CODEPAGE_LABEL"
+					description="KEYBOARD_CUSTOM_DESC"
+					default="[['`', '~'], ['1', '!', '¡', '¹'], ['2', '@', '²'], ['3', '#', '³'], ['4', '$', '¤', '£'], ['5', '%', '€'], ['6', '^', '¼'], ['7', '&amp;', '½'], ['8', '*', '¾'], ['9', '(', '‘'], ['0', ')', '’'], ['-', '_', '¥'], ['=', '+', '×', '÷'], ['Bksp', 'Bksp']],
+[['Tab', 'Tab'], ['q', 'Q', 'ä', 'Ä'], ['w', 'W', 'å', 'Å'], ['e', 'E', 'é', 'É'], ['r', 'R', '®'], ['t', 'T', 'þ', 'Þ'], ['y', 'Y', 'ü', 'Ü'], ['u', 'U', 'ú', 'Ú'], ['i', 'I', 'í', 'Í'], ['o', 'O', 'ó', 'Ó'], ['p', 'P', 'ö', 'Ö'], ['[', '{', '«'], [']', '}', '»'], ['\\', '|', '¬', '¦']],
+[['Caps', 'Caps'], ['a', 'A', 'á', 'Á'], ['s', 'S', 'ß', '§'], ['d', 'D', 'ð', 'Ð'], ['f', 'F'], ['g', 'G'], ['h', 'H'], ['j', 'J'], ['k', 'K'], ['l', 'L', 'ø', 'Ø'], [';', ':', '¶', '°'], ['\'', '&quot;', '´', '¨'], ['Enter', 'Enter']],
+[['Shift', 'Shift'], ['z', 'Z', 'æ', 'Æ'], ['x', 'X'], ['c', 'C', '©', '¢'], ['v', 'V'], ['b', 'B'], ['n', 'N', 'ñ', 'Ñ'], ['m', 'M', 'µ'], [',', '\u003C', 'ç', 'Ç'], ['\.', '\u003E'], ['/', '?', '¿'], ['Shift', 'Shift']],
+[[' ', ' ', ' ', ' '], ['Alt', 'Alt']]"
+					showon="keyboard_custom:1"
+				/>
+			</fieldset>
+
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+					rows="3"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
