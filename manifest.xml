@@ -5,7 +5,7 @@
 		<description>A multilingual keyboard interface for input fields and textareas</description>
 		<element>mod_virtual_keyboard</element>
 		<type>module</type>
-		<version>2.1</version>
+		<version>2.1.0</version>
 		<client>site</client>
 		<infourl title="Multilingual keyboard interface">https://github.com/pod-o-mart/mod_virtual_keyboard/releases/tag/2.1</infourl>
 		<downloads>
