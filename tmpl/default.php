@@ -612,24 +612,28 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
       [[" ", " "]]
     ], 'lang': ["hy"] };
 <?php } ?>
-
-  this.VKI_layout['\u00cdslenska'] = {
-    'name': "Icelandic", 'keys': [
+<?php if (($params->get('keyboard_is', 1)) OR ($params->get('default_keyboard')=='is'))
+{ ?>
+  this.VKI_layout['<?php echo $params->get('keyboard_is_name_original'); ?>'] = {
+    'name': "<?php echo $params->get('keyboard_is_name_site'); ?>", 'keys': [
       [["\u00B0", "\u00A8", "\u00B0"], ["1", "!"], ["2", '"'], ["3", "#"], ["4", "$"], ["5", "%", "\u20AC"], ["6", "&"], ["7", "/", "{"], ["8", "(", "["], ["9", ")", "]"], ["0", "=", "}"], ["\u00F6", "\u00D6", "\\"], ["-", "_"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
       [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["q", "Q", "@"], ["w", "W"], ["e", "E", "\u20AC"], ["r", "R"], ["t", "T"], ["y", "Y"], ["u", "U"], ["i", "I"], ["o", "O"], ["p", "P"], ["\u00F0", "\u00D0"], ["'", "?", "~"], ["+", "*", "`"]],
       [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["a", "A"], ["s", "S"], ["d", "D"], ["f", "F"], ["g", "G"], ["h", "H"], ["j", "J"], ["k", "K"], ["l", "L"], ["\u00E6", "\u00C6"], ["\u00B4", "'", "^"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
       [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["<", ">", "|"], ["z", "Z"], ["x", "X"], ["c", "C"], ["v", "V"], ["b", "B"], ["n", "N"], ["m", "M", "\u00B5"], [",", ";"], [".", ":"], ["\u00FE", "\u00DE"], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
       [[" ", " ", " ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["is"] };
-
-  this.VKI_layout['Italiano'] = {
-    'name': "Italian", 'keys': [
+<?php } ?>
+<?php if (($params->get('keyboard_it', 1)) OR ($params->get('default_keyboard')=='it'))
+{ ?>
+  this.VKI_layout['<?php echo $params->get('keyboard_it_name_original'); ?>'] = {
+    'name': "<?php echo $params->get('keyboard_it_name_site'); ?>", 'keys': [
       [["\\", "|"], ["1", "!"], ["2", '"'], ["3", "\u00a3"], ["4", "$", "\u20ac"], ["5", "%"], ["6", "&"], ["7", "/"], ["8", "("], ["9", ")"], ["0", "="], ["'", "?"], ["\u00ec", "^"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
       [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["q", "Q"], ["w", "W"], ["e", "E", "\u20ac"], ["r", "R"], ["t", "T"], ["y", "Y"], ["u", "U"], ["i", "I"], ["o", "O"], ["p", "P"], ["\u00e8", "\u00e9", "[", "{"], ["+", "*", "]", "}"], ["\u00f9", "\u00a7"]],
       [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["a", "A"], ["s", "S"], ["d", "D"], ["f", "F"], ["g", "G"], ["h", "H"], ["j", "J"], ["k", "K"], ["l", "L"], ["\u00f2", "\u00e7", "@"], ["\u00e0", "\u00b0", "#"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
       [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["<", ">"], ["z", "Z"], ["x", "X"], ["c", "C"], ["v", "V"], ["b", "B"], ["n", "N"], ["m", "M"], [",", ";"], [".", ":"], ["-", "_"], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
       [[" ", " ", " ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["it"] };
+<?php } ?>
 
   this.VKI_layout['\u65e5\u672c\u8a9e'] = {
     'name': "Japanese Hiragana/Katakana", 'keys': [
