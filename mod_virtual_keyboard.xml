@@ -2,9 +2,9 @@
 <extension type="module" version="3.1" client="site" method="upgrade">
 	<name>mod_virtual_keyboard</name>
 	<author>Martin Podolak</author>
-	<creationDate>2019-04-22</creationDate>
+	<creationDate>2019-04-27</creationDate>
 	<copyright>Copyright (C) 2019 Martin Podolak</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<license>Licenced for free distribution under the BSDL http://www.opensource.org/licenses/bsd-license.php</license>
 	<authorEmail>kontakt@podolak.net</authorEmail>
 	<authorUrl>www.podolak.net</authorUrl>
 	<version>2.0</version>

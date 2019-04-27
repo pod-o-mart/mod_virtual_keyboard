@@ -3,8 +3,11 @@
  * @package     Joomla.Site
  * @subpackage  mod_virtual_keyboard
  *
- * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * Copyright (C) 2019 Martin Podolak
+ * Licenced for free distribution under the BSDL http://www.opensource.org/licenses/bsd-license.php
+ * 
+ * HTML Virtual Keyboard Interface Script - v1.49
+ *   Copyright (c) 2011 - GreyWyvern
  */
 
 defined('_JEXEC') or die;
@@ -83,65 +86,6 @@ for(n=0;n<m.length;n++)
 <?php } ?>
 
 <script>
-/* ********************************************************************
- **********************************************************************
- * HTML Virtual Keyboard Interface Script - v1.49
- *   Copyright (c) 2011 - GreyWyvern
- *
- *  - Licenced for free distribution under the BSDL
- *          http://www.opensource.org/licenses/bsd-license.php
- *
- * Add a script-driven keyboard interface to text fields, password
- * fields and textareas.
- *
- * See http://www.greywyvern.com/code/javascript/keyboard for examples
- * and usage instructions.
- *
- * Version 1.49 - November 8, 2011
- *   - Don't display language drop-down if only one keyboard available
- *
- * 2019-03-07 Amharic and keyboard added
- * 
- *   See full changelog at:
- *     http://www.greywyvern.com/code/javascript/keyboard.changelog.txt
- *
- * Keyboard Credits
- *   - Amharic and Tigrinya keyboard layouts by Martin Podolak (podolak.net)
- *   - Yiddish (Yidish Lebt) keyboard layout by Simche Taub (jidysz.net)
- *   - Urdu Phonetic keyboard layout by Khalid Malik
- *   - Yiddish keyboard layout by Helmut Wollmersdorfer
- *   - Khmer keyboard layout by Sovann Heng (km-kh.com)
- *   - Dari keyboard layout by Saif Fazel
- *   - Kurdish keyboard layout by Ara Qadir
- *   - Assamese keyboard layout by Kanchan Gogoi
- *   - Bulgarian BDS keyboard layout by Milen Georgiev
- *   - Basic Japanese Hiragana/Katakana keyboard layout by Damjan
- *   - Ukrainian keyboard layout by Dmitry Nikitin
- *   - Macedonian keyboard layout by Damjan Dimitrioski
- *   - Pashto keyboard layout by Ahmad Wali Achakzai (qamosona.com)
- *   - Armenian Eastern and Western keyboard layouts by Hayastan Project (www.hayastan.co.uk)
- *   - Pinyin keyboard layout from a collaboration with Lou Winklemann
- *   - Kazakh keyboard layout by Alex Madyankin
- *   - Danish keyboard layout by Verner Kjærsgaard
- *   - Slovak keyboard layout by Daniel Lara (www.learningslovak.com)
- *   - Belarusian and Serbian Cyrillic keyboard layouts by Evgeniy Titov
- *   - Bulgarian Phonetic keyboard layout by Samuil Gospodinov
- *   - Swedish keyboard layout by Håkan Sandberg
- *   - Romanian keyboard layout by Aurel
- *   - Farsi (Persian) keyboard layout by Kaveh Bakhtiyari (www.bakhtiyari.com)
- *   - Burmese keyboard layout by Cetanapa
- *   - Bosnian/Croatian/Serbian Latin/Slovenian keyboard layout by Miran Zeljko
- *   - Hungarian keyboard layout by Antal Sall 'Hiromacu'
- *   - Arabic keyboard layout by Srinivas Reddy
- *   - Italian and Spanish (Spain) keyboard layouts by dictionarist.com
- *   - Lithuanian and Russian keyboard layouts by Ramunas
- *   - German keyboard layout by QuHno
- *   - French keyboard layout by Hidden Evil
- *   - Polish Programmers layout by moose
- *   - Turkish keyboard layouts by offcu
- *   - Dutch and US Int'l keyboard layouts by jerone
- *
- */
 var VKI_attach, VKI_close;
 (function() {
   var self = this;
@@ -292,58 +236,6 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
 
   /* ***** Create keyboards ************************************** */
   this.VKI_layout = {};
-
-  // - Lay out each keyboard in rows of sub-arrays.  Each sub-array
-  //   represents one key.
-  //
-  // - Each sub-array consists of four slots described as follows:
-  //     example: ["a", "A", "\u00e1", "\u00c1"]
-  //
-  //          a) Normal character
-  //          A) Character + Shift/Caps
-  //     \u00e1) Character + Alt/AltGr/AltLk
-  //     \u00c1) Character + Shift/Caps + Alt/AltGr/AltLk
-  //
-  //   You may include sub-arrays which are fewer than four slots.
-  //   In these cases, the missing slots will be blanked when the
-  //   corresponding modifier key (Shift or AltGr) is pressed.
-  //
-  // - If the second slot of a sub-array matches one of the following
-  //   strings:
-  //     "<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_bksp'); ?>",
-  //     "<?php echo $params->get('vki_alt'); ?>" OR "<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altlk'); ?>"
-  //   then the function of the key will be the following,
-  //   respectively:
-  //     - Insert a tab
-  //     - Toggle Caps Lock (technically a Shift Lock)
-  //     - Next entered character will be the shifted character
-  //     - Insert a newline (textarea), or close the keyboard
-  //     - Delete the previous character
-  //     - Next entered character will be the alternate character
-  //     - Toggle Alt/AltGr Lock
-  //
-  //   The first slot of this sub-array will be the text to display
-  //   on the corresponding key.  This allows for easy localisation
-  //   of key names.
-  //
-  // - Layout dead keys (diacritic + letter) should be added as
-  //   property/value pairs of objects with hash keys equal to the
-  //   diacritic.  See the "this.VKI_deadkey" object below the layout
-  //   definitions.  In each property/value pair, the value is what
-  //   the diacritic would change the property name to.
-  //
-  // - Note that any characters beyond the normal ASCII set should be
-  //   entered in escaped Unicode format.  (eg \u00a3 = Pound symbol)
-  //   You can find Unicode values for characters here:
-  //     http://unicode.org/charts/
-  //
-  // - To remove a keyboard, just delete it, or comment it out of the
-  //   source code. If you decide to remove the US International
-  //   keyboard layout, make sure you change the default layout
-  //   (this.VKI_kt) above so it references an existing layout.
-  
-
-  
   
 <?php if (($params->get('keyboard_am', 1)) OR ($params->get('default_keyboard')=='am'))
 { ?>
