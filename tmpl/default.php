@@ -134,6 +134,7 @@ elseif ($params->get('default_keyboard')=='bg2') {echo $params->get('keyboard_bg
 elseif ($params->get('default_keyboard')=='bn') {echo $params->get('keyboard_bn_name_original');}
 elseif ($params->get('default_keyboard')=='fr-CA') {echo $params->get('keyboard_fr-CA_name_original');}
 elseif ($params->get('default_keyboard')=='cs') {echo $params->get('keyboard_cs_name_original');}
+elseif ($params->get('default_keyboard')=='crh') {echo $params->get('keyboard_crh_name_original');}
 elseif ($params->get('default_keyboard')=='da') {echo $params->get('keyboard_da_name_original');}
 elseif ($params->get('default_keyboard')=='de') {echo $params->get('keyboard_de_name_original');}
 elseif ($params->get('default_keyboard')=='db') {echo $params->get('keyboard_db_name_original');}
@@ -206,6 +207,7 @@ elseif ($params->get('default_keyboard')=='th2') {echo $params->get('keyboard_th
 elseif ($params->get('default_keyboard')=='tt') {echo $params->get('keyboard_tt_name_original');}
 elseif ($params->get('default_keyboard')=='trf') {echo $params->get('keyboard_trf_name_original');}
 elseif ($params->get('default_keyboard')=='trq') {echo $params->get('keyboard_trq_name_original');}
+elseif ($params->get('default_keyboard')=='tk') {echo $params->get('keyboard_trq_name_original');}
 elseif ($params->get('default_keyboard')=='uk') {echo $params->get('keyboard_uk_name_original');}
 elseif ($params->get('default_keyboard')=='ur1') {echo $params->get('keyboard_ur1_name_original');}
 elseif ($params->get('default_keyboard')=='ur2') {echo $params->get('keyboard_ur2_name_original');}
@@ -565,9 +567,9 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
 { ?>
   this.VKI_layout['<?php echo $params->get('keyboard_glag_name_original'); ?>'] = {
     'name': "<?php echo $params->get('keyboard_glag_name_site'); ?>", 'keys': [
-      [["\u{A67D}", "\u{A67F}"], ["\u{A67C}", "\u{482}"], ["\u{A66F}", "\u{488}"], ["\u{483}", "\u{489}"], ["\u{485}", "\u{A670}"], ["\u{486}", "\u{A671}"], ["\u{487}", "\u{A672}"], ["\u{484}", "\u{203B}"], ["\u{306}", "\u{A673}"], ["\u{2D8}", "\u{A67E}"], ["\u{B4}", "`"], ["\u{10FB}", "\u{2056}"], ["\u{308}", "\u{2058}"], ["\u{33E}", "\u{2E2F}"], [".", ","], ["\u{2059}", "\u{387}"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
-      [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["\u{2C30}", "\u{2C00}", "\u{430}", "\u{410}"], ["\u{2C31}", "\u{2C01}", "\u{431}", "\u{411}"], ["\u{2C32}", "\u{2C02}", "\u{432}", "\u{412}"], ["\u{2C33}", "\u{2C03}", "\u{433}", "\u{413}"], ["\u{2C34}", "\u{2C04}", "\u{434}", "\u{414}"], ["\u{2C35}", "\u{2C05}", "\u{454}", "\u{404}"], ["\u{2C36}", "\u{2C06}", "\u{436}", "\u{416}"], ["\u{2C37}", "\u{2C07}", "\u{455}", "\u{405}"], ["\u{2C38}", "\u{2C08}", "\u{437}", "\u{417}"], ["\u{2C39}", "\u{2C09}", "\u{438}", "\u{418}"], ["\u{2C3A}", "\u{2C0A}", "\u{439}", "\u{419}"], ["\u{2C3B}", "\u{2C0B}", "\u{456}", "\u{406}"], ["\u{2C3C}", "\u{2C0C}", "\u{45B}", "\u{40B}"]],
-      [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["\u{2C3D}", "\u{2C0D}", "\u{43A}", "\u{41A}"], ["\u{2C3E}", "\u{2C0E}", "\u{43B}", "\u{41B}"], ["\u{2C3F}", "\u{2C0F}", "\u{43C}", "\u{41C}"], ["\u{2C40}", "\u{2C10}", "\u{43D}", "\u{41D}"], ["\u{2C41}", "\u{2C11}", "\u{43E}", "\u{41E}"], ["\u{2C42}", "\u{2C12}", "\u{43F}", "\u{41F}"], ["\u{2C43}", "\u{2C13}", "\u{440}", "\u{420}"], ["\u{2C44}", "\u{2C14}", "\u{441}", "\u{421}"], ["\u{2C45}", "\u{2C15}", "\u{442}", "\u{422}"], ["\u{2C46}", "\u{2C16}", "\u{443}", "\u{423}"], ["\u{2C47}", "\u{2C17}", "\u{444}", "\u{424}"], ["\u{2C48}", "\u{2C18}", "\u{445}", "\u{425}"], ["\u{2C49}", "\u{2C19}", "\u{461}", "\u{460}"]],
+      [["\u{A67D}", "\u{A67F}"], ["\u{A67C}", "\u{482}"], ["\u{A66F}", "\u{488}"], ["\u{483}", "\u{489}"], ["\u{485}", "\u{A670}"], ["\u{486}", "\u{A671}"], ["\u{487}", "\u{A672}"], ["\u{484}", "\u{203B}"], ["\u{306}", "\u{A673}"], ["\u{2D8}", "\u{A67E}"], ["\u{B4}", "`"], ["\u{10FB}", "\u{2056}"], ["\u{308}", "\u{2058}"], ["\u{33E}", "\u{2E2F}"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
+      [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["\u{2C30}", "\u{2C00}", "\u{430}", "\u{410}"], ["\u{2C31}", "\u{2C01}", "\u{431}", "\u{411}"], ["\u{2C32}", "\u{2C02}", "\u{432}", "\u{412}"], ["\u{2C33}", "\u{2C03}", "\u{433}", "\u{413}"], ["\u{2C34}", "\u{2C04}", "\u{434}", "\u{414}"], ["\u{2C35}", "\u{2C05}", "\u{454}", "\u{404}"], ["\u{2C36}", "\u{2C06}", "\u{436}", "\u{416}"], ["\u{2C37}", "\u{2C07}", "\u{455}", "\u{405}"], ["\u{2C38}", "\u{2C08}", "\u{437}", "\u{417}"], ["\u{2C39}", "\u{2C09}", "\u{438}", "\u{418}"], ["\u{2C3A}", "\u{2C0A}", "\u{439}", "\u{419}"], ["\u{2C3B}", "\u{2C0B}", "\u{456}", "\u{406}"], ["\u{2C3C}", "\u{2C0C}", "\u{45B}", "\u{40B}"], ["\u{2059}", "\u{387}"]],
+      [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["\u{2C3D}", "\u{2C0D}", "\u{43A}", "\u{41A}"], ["\u{2C3E}", "\u{2C0E}", "\u{43B}", "\u{41B}"], ["\u{2C3F}", "\u{2C0F}", "\u{43C}", "\u{41C}"], ["\u{2C40}", "\u{2C10}", "\u{43D}", "\u{41D}"], ["\u{2C41}", "\u{2C11}", "\u{43E}", "\u{41E}"], ["\u{2C42}", "\u{2C12}", "\u{43F}", "\u{41F}"], ["\u{2C43}", "\u{2C13}", "\u{440}", "\u{420}"], ["\u{2C44}", "\u{2C14}", "\u{441}", "\u{421}"], ["\u{2C45}", "\u{2C15}", "\u{442}", "\u{422}"], ["\u{2C46}", "\u{2C16}", "\u{443}", "\u{423}"], ["\u{2C47}", "\u{2C17}", "\u{444}", "\u{424}"], ["\u{2C48}", "\u{2C18}", "\u{445}", "\u{425}"], ["\u{2C49}", "\u{2C19}", "\u{461}", "\u{460}"], [".", ","]],
       [["", ""], ["\u{2C4A}", "\u{2C1A}", "\u{43F}", "\u{41F}"], ["\u{2C4B}", "\u{2C1B}", "\u{449}", "\u{429}"], ["\u{2C4C}", "\u{2C1C}", "\u{446}", "\u{426}"], ["\u{2C4D}", "\u{2C1D}", "\u{447}", "\u{427}"], ["\u{2C4E}", "\u{2C1E}", "\u{448}", "\u{428}"], ["\u{2C4F}", "\u{2C1F}", "\u{44A}", "\u{42A}"], ["\u{2C50}", "\u{2C20}", "\u{44C}", "\u{42C}"], ["\u{2C51}", "\u{2C21}", "\u{463}", "\u{462}"], ["\u{2C52}", "\u{2C22}", "\u{445}", "\u{425}"], ["\u{2C53}", "\u{2C23}", "\u{44E}", "\u{42E}"], ["\u{2C54}", "\u{2C24}", "\u{467}", "\u{466}"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
       [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["\u{2C55}", "\u{2C25}", "\u{46D}", "\u{46C}"], ["\u{2C56}", "\u{2C26}", "\u{451}", "\u{401}"], ["\u{2C57}", "\u{2C27}", "\u{469}", "\u{468}"], ["\u{2C58}", "\u{2C28}", "\u{46B}", "\u{46A}"], ["\u{2C59}", "\u{2C29}", "\u{46D}", "\u{46C}"], ["\u{2C5A}", "\u{2C2A}", "\u{473}", "\u{472}"], ["\u{2C5B}", "\u{2C2B}", "\u{475}", "\u{474}"], ["\u{2C5C}", "\u{2C2C}", "\u{44A}", "\u{42A}"], ["\u{2C5D}", "\u{2C2D}", "\u{430}", "\u{410}"], ["\u{2C5E}", "\u{2C2E}", "\u{43C}", "\u{41C}"], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
       [[" ", " ", " ", " "], ["<?php echo $params->get('vki_alt'); ?>", "<?php echo $params->get('vki_alt'); ?>"]]
@@ -948,6 +950,17 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
       [[" ", " ", " ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["pt"] };
 <?php } ?>
+<?php if (($params->get('keyboard_crh', 1)) OR ($params->get('default_keyboard')=='crh'))
+{ ?>
+    this.VKI_layout['<?php echo $params->get('keyboard_crh_name_original'); ?>'] = {
+    'name': "<?php echo $params->get('keyboard_crh_name_site'); ?>", 'keys': [
+      [["\"", "\\", "<", "\u00B0"], ["1", "!", ">", "\u00A1"], ["2", "\'", "\u00A3", "\u00B2"], ["3", "^", "#", "\u00B3"], ["4", "+", "$", "\u00BC"], ["5", "%", "\u00BD", "\u215C"], ["6", "&", "\u00BE"], ["7", "/", "{"], ["8", "(", "["], ["9", ")", "]", "\u00B1"], ["0", "=", "}", "\u00B0"], ["x", "X", "*", "?"], ["-", "_", "|"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
+      [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["q", "Q", "@", "\u03A9"], ["w", "W", "\u20B4"], ["e", "E", "\u20AC"], ["r", "R", "\u20BD", "\u00AE"], ["t", "T", "\u20BA"], ["y", "Y", "\u2190", "\u00A5"], ["u", "U", "\u00FB", "\u00DB"], ["\u0131", "I", "\u00EE", "\u00CE"], ["o", "O", "\u00F4", "\u00D4"], ["p", "P"], ["\u011F", "\u011E", "\u00A8", "\u00B0"], ["\u00FC", "\u00DC", "~", "\u00AF"], [",", ";", "`", "`"]],
+      [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["a", "A", "\u00E2", "\u00C2"], ["s", "S", "\u00A7"], ["d", "D", "\u00B6"], ["f", "F", "\u00ED", "\u00CD"], ["g", "G"], ["h", "H"], ["j", "J", "\u012D", "\u012C"], ["k", "K"], ["l", "L"], ["\u015F", "\u015E", "\u00B4", "'"], ["i", "\u0130", "'", "\u02C7"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
+      [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["<", ">", "|", "\u00A6"], ["z", "Z", "\u00AB", "<"], ["\u00F1", "\u00D1", "\u00BB", ">"], ["c", "C", "\u00A2", "\u00A9"], ["v", "V", "\u201C", "\u2018"], ["b", "B", "\u201D", "\u2019"], ["n", "N", "n", "N"], ["m", "M", "\u00B5", "\u00BA"], ["\u00F6", "\u00D6", "\u00D7"], ["\u00E7", "\u00C7", "\u00B7", "\u00F7"], [".", ":", "", "\u02D9"],  ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
+      [[" ", " ", " ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
+    ], 'lang': ["crh"] };
+<?php } ?>
 <?php if (($params->get('keyboard_ro', 1)) OR ($params->get('default_keyboard')=='ro'))
 { ?>
   this.VKI_layout['<?php echo $params->get('keyboard_ro_name_original'); ?>'] = {
@@ -963,11 +976,11 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
 { ?>
   this.VKI_layout['<?php echo $params->get('keyboard_ru_name_original'); ?>'] = {
     'name': "<?php echo $params->get('keyboard_ru_name_site'); ?>", 'keys': [
-      [["\u0451", "\u0401"], ["1", "!"], ["2", '"'], ["3", "\u2116"], ["4", ";"], ["5", "%"], ["6", ":"], ["7", "?"], ["8", "*"], ["9", "("], ["0", ")"], ["-", "_"], ["=", "+"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
+      [["\u0451", "\u0401"], ["1", "!"], ["2", '"'], ["3", "\u2116", "\u20B4"], ["4", ";"], ["5", "%"], ["6", ":"], ["7", "?"], ["8", "*", "\u20BD"], ["9", "("], ["0", ")"], ["-", "_"], ["=", "+"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
       [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["\u0439", "\u0419"], ["\u0446", "\u0426"], ["\u0443", "\u0423"], ["\u043A", "\u041A"], ["\u0435", "\u0415"], ["\u043D", "\u041D"], ["\u0433", "\u0413"], ["\u0448", "\u0428"], ["\u0449", "\u0429"], ["\u0437", "\u0417"], ["\u0445", "\u0425"], ["\u044A", "\u042A"], ["\\", "/"]],
       [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["\u0444", "\u0424"], ["\u044B", "\u042B"], ["\u0432", "\u0412"], ["\u0430", "\u0410"], ["\u043F", "\u041F"], ["\u0440", "\u0420"], ["\u043E", "\u041E"], ["\u043B", "\u041B"], ["\u0434", "\u0414"], ["\u0436", "\u0416"], ["\u044D", "\u042D"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
       [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["/", "|"], ["\u044F", "\u042F"], ["\u0447", "\u0427"], ["\u0441", "\u0421"], ["\u043C", "\u041C"], ["\u0438", "\u0418"], ["\u0442", "\u0422"], ["\u044C", "\u042C"], ["\u0431", "\u0411"], ["\u044E", "\u042E"], [".", ","], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
-      [[" ", " "]]
+      [[" ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["ru"] };
 <?php } ?>
 <?php if (($params->get('keyboard_de-CH', 1)) OR ($params->get('default_keyboard')=='de-CH'))
@@ -1168,15 +1181,26 @@ elseif ($params->get('default_keyboard')=='custom') {echo $params->get('keyboard
       [[" ", " ", " ", " "],  ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["tr"] };
 <?php } ?>
+<?php if (($params->get('keyboard_tk', 1)) OR ($params->get('default_keyboard')=='tk'))
+{ ?>
+this.VKI_layout['<?php echo $params->get('keyboard_tk_name_original'); ?>'] = {
+    'name': "<?php echo $params->get('keyboard_tk_name_site'); ?>", 'keys': [
+      [["\u017E", "\u017D", "`", "~"], ["1", "!", "1", "!"], ["2", "@", "2", "@"], ["3", "#", "3", "#"], ["4", "$", "4", "$"], ["5", "%", "5", "%"], ["6", "^", "6", "^"], ["7", "&", "7", "&"], ["8", "*", "8", "*"], ["9", "(", "9", "("], ["0", ")", "0", ")"], ["-", "_", "-", "_"], ["=", "+", "=", "+"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
+      [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["\u00E4", "\u00C4", "\u00E4", "\u00C4"], ["w", "W", "w", "W"], ["e", "E", "e", "E"], ["r", "R", "r", "R"], ["t", "T", "t", "T"], ["y", "Y", "y", "Y"], ["u", "U", "u", "U"], ["i", "I", "i", "I"], ["o", "O", "o", "O"], ["p", "P", "p", "P"], ["\u0148", "\u0147", "[", "\u0147"], ["\u00F6", "\u00D6", "]", "\u00D6"], ["/", "?", ".", "?"]],
+      [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["a", "A", "a", "A"], ["s", "S", "s", "S"], ["d", "D", "d", "D"], ["f", "F", "f", "F"], ["g", "G", "g", "G"], ["h", "H", "h", "H"], ["j", "J", "j", "J"], ["k", "K", "k", "K"], ["l", "L", "l", "L"], [";", ":", ";", ":"], ["\'", "\"", "\'", "\""], ["\\", "\u015E", "\u015F", "\u015E"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
+      [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["<", ">", "\\", "\u00AC"], ["z", "Z", "z", "Z"], ["\u00FC", "\u00DC", "x", "X"], ["\u00E7", "\u00C7", "c", "C"], ["\u00FD", "\u00DD", "v", "V"], ["b", "B", "b", "B"], ["n", "N", "n", "N"], ["m", "M", "m", "M"], [",", "<", ",", "<"], [".", ">", ".", ">"], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
+      [[" ", " ", " ", " "], ["<?php echo $params->get('vki_alt'); ?>", "<?php echo $params->get('vki_alt'); ?>"]]
+    ], 'lang': ["tk"] };
+<?php } ?>
 <?php if (($params->get('keyboard_uk', 1)) OR ($params->get('default_keyboard')=='uk'))
 { ?>
   this.VKI_layout['<?php echo $params->get('keyboard_uk_name_original'); ?>'] = {
     'name': "<?php echo $params->get('keyboard_uk_name_site'); ?>", 'keys': [
-      [["\u00b4", "~"], ["1", "!"], ["2", '"'], ["3", "\u2116"], ["4", ";"], ["5", "%"], ["6", ":"], ["7", "?"], ["8", "*"], ["9", "("], ["0", ")"], ["-", "_"], ["=", "+"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
+      [["\u00b4", "~"], ["1", "!"], ["2", '"'], ["3", "\u2116", "\u20B4"], ["4", ";"], ["5", "%"], ["6", ":"], ["7", "?"], ["8", "*"], ["9", "("], ["0", ")"], ["-", "_"], ["=", "+"], ["<?php echo $params->get('vki_bksp'); ?>", "<?php echo $params->get('vki_bksp'); ?>"]],
       [["<?php echo $params->get('vki_tab'); ?>", "<?php echo $params->get('vki_tab'); ?>"], ["\u0439", "\u0419"], ["\u0446", "\u0426"], ["\u0443", "\u0423"], ["\u043A", "\u041A"], ["\u0435", "\u0415"], ["\u043D", "\u041D"], ["\u0433", "\u0413"], ["\u0448", "\u0428"], ["\u0449", "\u0429"], ["\u0437", "\u0417"], ["\u0445", "\u0425"], ["\u0457", "\u0407"], ["\u0491", "\u0490"]],
       [["<?php echo $params->get('vki_caps'); ?>", "<?php echo $params->get('vki_caps'); ?>"], ["\u0444", "\u0424"], ["\u0456", "\u0406"], ["\u0432", "\u0412"], ["\u0430", "\u0410"], ["\u043F", "\u041F"], ["\u0440", "\u0420"], ["\u043E", "\u041E"], ["\u043B", "\u041B"], ["\u0434", "\u0414"], ["\u0436", "\u0416"], ["\u0454", "\u0404"], ["<?php echo $params->get('vki_enter'); ?>", "<?php echo $params->get('vki_enter'); ?>"]],
       [["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"], ["\u044F", "\u042F"], ["\u0447", "\u0427"], ["\u0441", "\u0421"], ["\u043C", "\u041C"], ["\u0438", "\u0418"], ["\u0442", "\u0422"], ["\u044C", "\u042C"], ["\u0431", "\u0411"], ["\u044E", "\u042E"], [".", ","], ["<?php echo $params->get('vki_shift'); ?>", "<?php echo $params->get('vki_shift'); ?>"]],
-      [[" ", " "]]
+      [[" ", " "], ["<?php echo $params->get('vki_altgr'); ?>", "<?php echo $params->get('vki_altgr'); ?>"]]
     ], 'lang': ["uk"] };
 <?php } ?>
 <?php if (($params->get('keyboard_ur1', 1)) OR ($params->get('default_keyboard')=='ur1'))

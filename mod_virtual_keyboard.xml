@@ -2,12 +2,12 @@
 <extension type="module" version="3.1" client="site" method="upgrade">
 	<name>mod_virtual_keyboard</name>
 	<author>Martin Podolak</author>
-	<creationDate>2019-04-27</creationDate>
+	<creationDate>2019-05-01</creationDate>
 	<copyright>Copyright (C) 2019 Martin Podolak</copyright>
 	<license>Licenced for free distribution under the BSDL http://www.opensource.org/licenses/bsd-license.php</license>
 	<authorEmail>kontakt@podolak.net</authorEmail>
 	<authorUrl>www.podolak.net</authorUrl>
-	<version>2.0.0</version>
+	<version>2.1.0</version>
 	<description>MOD_VIRTUAL_KEYBOARD_XML_DESCRIPTION</description>
 	<files>
 		<filename>mod_virtual_keyboard.xml</filename>
@@ -351,6 +351,7 @@
 					<option value="fr-CA">KEYBOARD_FR-CA_LABEL</option>
 					<option value="zh-Bopo">KEYBOARD_ZH-BOPO_LABEL</option>
 					<option value="zh">KEYBOARD_ZH_LABEL</option>
+					<option value="ro">KEYBOARD_CRH_LABEL</option>
 					<option value="cs">KEYBOARD_CS_LABEL</option>
 					<option value="da">KEYBOARD_DA_LABEL</option>
 					<option value="fa-AF">KEYBOARD_FA-AF_LABEL</option>
@@ -419,6 +420,7 @@
 					<option value="th2">KEYBOARD_TH2_LABEL</option>
 					<option value="trf">KEYBOARD_TRF_LABEL</option>
 					<option value="trq">KEYBOARD_TRQ_LABEL</option>
+					<option value="trq">KEYBOARD_TK_LABEL</option>
 					<option value="uk">KEYBOARD_UK_LABEL</option>
 					<option value="ur1">KEYBOARD_UR1_LABEL</option>
 					<option value="ur2">KEYBOARD_UR2_LABEL</option>
@@ -2349,6 +2351,36 @@
 					showon="keyboard_pt:1[AND]keyboard_advanced:1"
 				/>
 				<field
+					name="keyboard_crh"
+					type="radio"
+					label="KEYBOARD_CRH_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_crh_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Qırımtatarca"
+					showon="keyboard_crh:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_crh_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Crimean Tatar"
+					showon="keyboard_crh:1[AND]keyboard_advanced:1"
+				/>
+				<field
 					name="keyboard_ro"
 					type="radio"
 					label="KEYBOARD_RO_LABEL"
@@ -2947,6 +2979,36 @@
 					size="6"
 					default="Turkish Q"
 					showon="keyboard_trq:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_tk"
+					type="radio"
+					label="KEYBOARD_TK_LABEL"
+					description="KEYBOARD_DESC"
+					class="btn-group btn-group-yesno"
+					default="1"
+					filter="integer"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
+					name="keyboard_tk_name_original"
+					type="text"
+					label="ORIGINAL_NAME_LABEL"
+					description="ORIGINAL_NAME_DESC"
+					size="6"
+					default="Türkmençe"
+					showon="keyboard_tk:1[AND]keyboard_advanced:1"
+				/>
+				<field
+					name="keyboard_tk_name_site"
+					type="text"
+					label="SITE_NAME_LABEL"
+					description="SITE_NAME_DESC"
+					size="6"
+					default="Turkmen"
+					showon="keyboard_tk:1[AND]keyboard_advanced:1"
 				/>
 				<field
 					name="keyboard_uk"
