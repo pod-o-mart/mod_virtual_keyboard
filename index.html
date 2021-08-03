@@ -1,1 +1,71 @@
-<!DOCTYPE html><title></title>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="virtual, keyboard, joomla, module, Arabic, Armenian, Belarusian, Belgian, Bengali, Bulgarian Phonetic, Burmese, Czech, Danish, Dutch, Dvorak, Farsi, Persian, French, German, Greek, Hebrew, Hindi, Hungarian, Italian, Japanese Hiragana, Katakana, Kazakh, Lithuanian, Macedonian, Norwegian, Number Pad, Pashto, Pinyin, Polish Programmers, Portuguese, Romanian, Russian, Serbian Cyrillic, Serbian Latin, Slovak, Slovenian, Spanish (Spain), Swedish, Turkish-F, Turkish-QWERTY" />
+	<meta name="description" content="This is a Joomla module for multilingual virtual keyboard functionality in input fields." />
+	<meta name="author" content="Martin Podolak" />
+	<title>Multilingual Virtual Keyboard for Joomla</title>
+	<link href="https://pod-o-mart.github.io/keyboardBookmarklets/keyboard.css" rel="stylesheet" type="text/css" />
+	<script src="https://pod-o-mart.github.io/keyboardBookmarklets/kb.js" type="text/javascript"></script>
+</head>
+<body>
+<p style="text-align: justify;font-weight:bold;">This is a Joomla module for multilingual virtual keyboard functionality in input fields and textareas.</p>
+<p style="text-align: justify;">The keyboard is based on the <a href="https://greywyvern.com/code/javascript/keyboard" target="_blank" rel="noopener noreferrer">JavaScript Graphical / Virtual Keyboard Interface</a> by GreyWyvern.</p>
+<input size="12" class="keyboardDemo" type="text" placeholder="Demo input field" /><textarea class="keyboardDemo" placeholder="Demo textarea"></textarea>
+<h3 style="text-align: justify;">Supported keymaps</h3>
+<p style="text-align: justify;"><em>Albanian, Amharic (=Tigrinya), Arabic, Armenian (Eastern/Western), Assamese, Azerbaijani (Cyrillic / Latin), Belarusian, Belgian, Bengali, Bulgarian (+Phonetic), Burmese, Chinese (Bopomofo / Cangjie / Pinyin), Crimean Tatar, Czech, Danish, Dari, Devanagari, Divehi, Dingbats, Dvorak, Dutch, English (International / GB / US), Estonian, Faeroese, Farsi, Finnish, French (Canada / France / Switzerland), Georgian, German (Germany / Switzerland), Glagolitic, Greek, Gujarati, Hebrew, Hindi, Icelandic, Irish / Gaelic, Italian, Japanese (Hiragana / Katakana), Kannada, Kazakh (Cyrillic), Khmer, Korean, Kurdish, Kyrgyz, Latvian, Lithuanian, Hungarian, Macedonian, Malayalam, Maltese, Marathi, Misc. Symbols, Mongolian (Cyrillic), Norwegian, Old Cyrillic / Church Slavonic, Pashto, Polish (+Programmers), Portuguese (Brazil / Portugal), Punjabi (Gurmukhi), Romanian, Russian, Serbocroatian (Latin = Bosnian/Croatian/Serbian &amp; Slovenian), Serbian (Cyrillic), Slovak, Spanish, Swedish, Swiss (French / German), Syriac, Tamil, Tatar (Cyrillic), Telugu, Thai (Kedmanee / Pattachote), Turkish (F/Q), Turkmen, Ukrainian, Urdu (+Phonetic), Uzbek, Vietnamese, Yiddish (+Yidish Lebt)</em></p>
+<p style="text-align: justify;">The keyboard is fully customisable in the backend. Without any coding you can adjust the basic keyboard settings as: adjust keyboard size, allow user to resize, show number pad, set dead keys on by default, submit forms when Enter is pressed, set keyboard image, use imageless mode, use clickless mode, display only the keyboards you need, define default keyboard. Additionally, you make the keyboard responsive for touch screens (experimental, might not work with your template). As an advanced option, you can define a custom keyboard layout.</p>
+<h3 style="text-align: justify;">Download</h3>
+<p style="text-align: justify;"><strong>Joomla 3.x: <a href="https://github.com/pod-o-mart/mod_virtual_keyboard/releases/download/2.1/mod_virtual_keyboard.zip">mod_virtual_keyboard.zip</a></strong> (Version 2.1)</p>
+<p style="text-align: justify;"><strong>Joomla 1.5: <a href="https://github.com/pod-o-mart/mod_virtual_keyboard/releases/download/1.0/mod_virtual_keyboard.zip">mod_virtual_keyboard.zip</a></strong> (Version 1.0)</p>
+<p><a target="_blank" href="https://github.com/pod-o-mart/mod_virtual_keyboard">Github project page</a></p>
+<p style="text-align: justify;">The module is listed in the <a href="https://extensions.joomla.org/extension/multilingual-virtual-keyboard-interface/" target="_blank">Joomla! Extensions Directory</a>.</p>
+<p>There is also a <a title="Virtual keyboard bookmarklet" href="/en/bookmarklets/keyboard">bookmarklet</a>.</p>
+<hr id="system-readmore" />
+<h3 style="text-align: justify;">Installation</h3>
+<p style="text-align: justify;">After installation disable the module title, enable the module and assign it to a bottom position of your template. This is necessary because the keyboard script has to load in the end. Position it in the where it doesn't produce any styling, for example in the footer. It must be in a position which is defined by your template. If there are problems with the template, try a different position.</p>
+<h3 style="text-align: justify;">Configuration</h3>
+<p>Most options are self-explanatory or have a tooltip. Here some additional remarks:</p>
+<h3>General settings (module pane)</h3>
+<p><strong>Apply keyboard to:</strong> You apply the virtual keyboard to all input fields and textareas at once ("all") or to one or more specific input fields/textareas by indicating a corresponding class name. If you need the keyboard for fields with different classes, create a new module of the keyboard in the modules mananger and define the according class there.</p>
+<p><strong>Custom font:</strong> Define a custom font for the keyboard and the corresponding input field(s)/textarea(s). Blank input will use the default settings. Put the font on some place in your Joomla installation and point to it (e.g. <span style="font-family: courier new, courier, monospace;">/media/fonts/font.ttf</span>). This option has been tested so far with TTF fonts.  Before using a font, please check its license restrictions first.</p>
+<p><strong>Responsive keyboard (Experimental):</strong> This will enable a responsive layout on mobile devices. It will suppress the domestic keyboard and show the virtual keyboard instead. This option still causes problems with some templates, see "Known issues" below.</p>
+<h3 style="text-align: justify;">Adjust button names, tooltips and meta keys</h3>
+<p style="text-align: justify;">You can adjust all keys, tooltips and language names to your needs manually. You might change these to your needs, especially if you have a web site other than in English.</p>
+<h3 style="text-align: justify;">Keyboard settings pane</h3>
+<p style="text-align: justify;">When turning the advanced options on, you will be able to change the keyboards' titles and tooltips. This is useful in cases where several languages share the same keyboard layout and you want to change the name for your needs accordingly (e.g. <em>Serbocroatian</em> is also used by <em>Bosnian/Croatian/Serbian</em> &amp; <em>Slovenian</em> and <em>Tigrinya</em> also uses <em>Amharic</em>).</p>
+<h3 style="text-align: justify;">Localise the keyboard</h3>
+<ul>
+<li style="text-align: justify;">Adjust button names, tooltips and meta keys in the General settings (module pane)</li>
+<li style="text-align: justify;">Change keyboard titles and tooltips (keyboard pane)</li>
+<li style="text-align: justify;">Create several virtual keyboard modules and assign them to each of your site languages</li>
+</ul>
+<h3 style="text-align: justify;">Note</h3>
+<p>All keyboards (except <em>Amharic</em> and <em>Custom</em>) are active by default. Consider turning off keyboards you don't need in order to save loading time.</p>
+<p>The <strong><em>Amharic</em></strong> keyboard needs dead keys active by default. <em>Amharic</em> overrides the dead key settings so if <em>Amharic</em> is enabled, you won't be able turn dead keys off on the General settings.</p>
+<p>The <em><strong>Glagolitic</strong></em> keyboard shows the characters' Cyrillic equivalents on "<span style="font-family: courier new, courier, monospace;">Alt</span>" which is ment to be merely informational. The full set of <em>Cyrillic</em> characters is provided in the <strong><em>Old Cyrillic / Church Slavonic</em></strong> keyboard which is based on the Russian pre-revolutionary typewriter, extended with the other Old Cyrillic characters. The latter are available with "<span style="font-family: courier new, courier, monospace;">AltGr</span>". You might consider using a <strong>Medieval font</strong>. See above how to do this and check out <a title="Weblinks to Slavic Medieval font resources" href="en/transliteration/weblinks/173-fonts">this link collection</a>.</p>
+<h3>Custom keyboard (Advanced)</h3>
+<p>It is possible to define a keyboard and additional dead keys according to own needs. Be aware that errors in you code might break the virtual keyboard. In such case, simply save a blank field, so the initial values will be restored.<br /><br />Lay out each keyboard in rows of sub-arrays. Each sub-array represents one key. Each sub-array consists of four slots described as follows:<br />   example: <code><span style="font-family: courier new, courier, monospace;">["a", "A", "\u00e1", "\u00c1"]</span></code><br />   <code>a</code> - Normal character<br />   <code>A</code> - Character + <span style="font-family: courier new, courier, monospace;">Shift<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>Caps</span><br />   <code>\u00e1</code> - Character + <span style="font-family: courier new, courier, monospace;">Alt<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>AltGr<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>AltLk</span><br />   <code>\u00c1</code> - Character + <span style="font-family: courier new, courier, monospace;">Shift<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>Caps</span> + <span style="font-family: courier new, courier, monospace;">Alt<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>AltGr<span style="font-family: tahoma, arial, helvetica, sans-serif;">/</span>AltLk</span><br /><br />You may include sub-arrays which are fewer than four slots. In these cases, the missing slots will be blanked when the corresponding modifier key (<span style="font-family: courier new, courier, monospace;">Shift</span> or <span style="font-family: courier new, courier, monospace;">AltGr</span>) is pressed.</p>
+<p>If the second slot of a sub-array matches one of the following strings:<br />   "<span style="font-family: courier new, courier, monospace;">Tab</span>", "<span style="font-family: courier new, courier, monospace;">Caps</span>", "<span style="font-family: courier new, courier, monospace;">Shift</span>", "<span style="font-family: courier new, courier, monospace;">Enter</span>", "<span style="font-family: courier new, courier, monospace;">Bksp</span>", "<span style="font-family: courier new, courier, monospace;">Alt</span>" OR "<span style="font-family: courier new, courier, monospace;">AltGr</span>", "<span style="font-family: courier new, courier, monospace;">AltLk</span>"<br />then the function of the key will be the following, respectively:</p>
+<ul>
+<li>Insert a tab</li>
+<li>Toggle <span style="font-family: courier new, courier, monospace;">Caps Lock</span> (technically a <span style="font-family: courier new, courier, monospace;">Shift Lock</span>)</li>
+<li>Next entered character will be the shifted character</li>
+<li>Insert a newline (textarea), or close the keyboard</li>
+<li>Delete the previous character</li>
+<li>Next entered character will be the alternate character</li>
+<li>Toggle <span style="font-family: courier new, courier, monospace;">Alt</span>/<span style="font-family: courier new, courier, monospace;">AltGr</span> Lock</li>
+</ul>
+<p>The first slot of this sub-array will be the text to display on the corresponding key.</p>
+<p>Layout <strong>dead keys</strong> (diacritic + letter) should be added as property/value pairs of objects with hash keys equal to the diacritic. See the <code><span style="font-family: courier new, courier, monospace;">this.VKI_deadkey</span></code> object. In each property/value pair, the value is what the diacritic would change the property name to.</p>
+<h3>Known issues</h3>
+<ul>
+<li>In some cases the activation of this module causes problems with the display of the site. The solution is to choose a different position</li>
+<li>The responsive keyboard option will only work with some Joomla templates. There are still issues with the JQuery and the Modernizr library. See the <a href="https://github.com/pod-o-mart/mod_virtual_keyboard/issues" target="_blank" rel="noopener noreferrer">issue on Github</a></li>
+</ul>
+<h3>Support</h3>
+<p>Exclusively on the <a href="https://github.com/pod-o-mart/mod_virtual_keyboard" target="_blank" rel="noopener noreferrer">project page on Github</a>.</p>
+<p> </p>
+</body>
+</html>
